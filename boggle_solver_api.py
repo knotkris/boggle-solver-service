@@ -29,8 +29,7 @@ def solve_board():
             if (len(board) < size**2):
                 return json_resp('Parameter board must be the size of the size parameter squared', [], http_status['BAD_REQUEST'])
 
-        #result = find_words(board, size, en_dict)
-        result = ['test']
+        result = find_words(board, size, en_dict)
         status = http_status['OK']
     except Exception as e:
         print(e)
