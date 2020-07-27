@@ -1,8 +1,11 @@
 from flask import Flask, request, json, Response
+from flask_cors import CORS
 from dto.word_list_resp import WordListResp
 from service.boggle_solver_service import find_words, load_words
 
 app = Flask(__name__)
+
+CORS(app)
 
 json_header = {'content-type': 'application/json'}
 
@@ -26,7 +29,8 @@ def solve_board():
             if (len(board) < size**2):
                 return json_resp('Parameter board must be the size of the size parameter squared', [], http_status['BAD_REQUEST'])
 
-        result = find_words(board, size, en_dict)
+        #result = find_words(board, size, en_dict)
+        result = ['test']
         status = http_status['OK']
     except Exception as e:
         print(e)
